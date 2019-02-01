@@ -1,6 +1,5 @@
 <template>
   <div class="back">
-
     <v-login @changeShow="changeShow" v-show="!show"></v-login>
     <v-register @changeShow="changeShow" v-show="show"></v-register>      
   </div>
@@ -12,12 +11,16 @@ import register from '../components/register.vue'
   export default {
     data () {
       return {
-          show: true
+          show: true,
+          test:[]
       }
     },
     components: {
       'v-login': login,
       'v-register': register
+    },
+    mounted:function() {
+
     },
     methods: {
       changeShow() {
@@ -34,7 +37,7 @@ import register from '../components/register.vue'
   height: 100%;
   top: 0;right: 0;
   background-size: cover;
-  background: url(http://oqjgod7s1.bkt.clouddn.com/bg-min.jpg);
+ // background: url(http://oqjgod7s1.bkt.clouddn.com/bg-min.jpg);
 }
 
 </style>

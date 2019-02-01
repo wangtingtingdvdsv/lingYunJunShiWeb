@@ -24,13 +24,3 @@ basedir=D:\software\mysql-5.6
 
 我有目录D:\software ,但是我的\s去哪儿了，\s是一个转义字符啊，我在my.ini中的设置是basedir=D:\software\mysql-5.6\，并没有对\s进行转义。然后改为
 basedir=D:\\software\mysql-5.6，记得转义啊！！！！
-
-2. git add . 时显示
- LF will be replaced by CRLF in package.json.
- CRLF 是carriagereturnline feed的缩写。中文意思是回车换行。
- LF是line feed的缩写，中文意思是换行。
- 解决方法 git config --global core.autocrlf  false
-然后rm -rf init 
-之后重新执行git init
-
-

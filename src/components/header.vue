@@ -18,8 +18,9 @@
 
 </template>
 
-<script >
+<script type="text/ecmascript-6">
 import $ from 'jquery'
+import config from '../../configFile.js'
   export default {
     data() {
       return {
@@ -35,7 +36,7 @@ import $ from 'jquery'
         var _this = this;
 
              $.ajax({
-              url: 'http://localhost:9008/admin/logout',
+              url: config.url + '/admin/logout',
               type: 'post',
 
               xhrFields: {

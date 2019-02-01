@@ -4,13 +4,13 @@
              @close="handleClose" router>
       <el-menu-item index="/home/productOrder"><i class="el-icon-view"></i>商品订单</el-menu-item>
       <el-menu-item index="/home/productList"><i class="el-icon-tickets"></i>商品列表</el-menu-item>
-      <el-menu-item index="/home/productReview"><i class="el-icon-date"></i>商品评价</el-menu-item>
+      <!-- <el-menu-item index="/home/productReview"><i class="el-icon-date"></i>商品评价</el-menu-item> -->
       <el-menu-item index="/home/productCategory"><i class="el-icon-plus"></i>类目列表</el-menu-item>
     </el-menu>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   export default {
     methods: {
       handleOpen(key, keyPath) {

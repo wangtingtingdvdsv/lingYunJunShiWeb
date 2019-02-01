@@ -46,7 +46,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import VeLine from 'v-charts/lib/line'
   export default{
     data(){

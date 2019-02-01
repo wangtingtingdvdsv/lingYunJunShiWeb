@@ -15,16 +15,14 @@
     </label>
     <button @click="doLogin">登录</button>
     <button @click="doRegister">确认注册</button>
-    
-
   </div>
 </template>     
 
 
 <script>
+import config from '../../configFile.js'
 import axios from 'axios'
 import $ from 'jquery'
-import notify from './Notification/function'
 export default {
     data () {
       return {
@@ -62,7 +60,7 @@ export default {
           var _this = this;
         if (_this.checkValidity()) {
         $.ajax({
-          url: 'http://localhost:9008/admin/register',
+          url: config.url+ '/admin/register',
           type: 'post',
           data:{
                userName: _this.userName, 
@@ -74,11 +72,8 @@ export default {
           success: function (data) {
               console.log("-----------------data", data);
           },
-          error: function (error) {
-              notify({
-                  content: '邀请码错误'
-              })
-              console.log('Error', error);
+          error: function (xhr, status, error) {
+              console.log('Error: ' + error.message);
           },
       });
 

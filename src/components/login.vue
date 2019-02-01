@@ -16,8 +16,8 @@
 
 
 <script>
+import config from '../../configFile.js'
 import $ from 'jquery'
-import notify from './Notification/function'
   export default {
     data () {
       return {
@@ -54,7 +54,7 @@ import notify from './Notification/function'
         var _this = this;
         if (this.checkValidity()) {
             $.ajax({
-              url: 'http://localhost:9008/admin/login',
+              url: config.url + '/admin/login',
               type: 'post',
               data:{
                   userName: _this.userName, 
@@ -69,9 +69,6 @@ import notify from './Notification/function'
               },
               error: function (xhr, status, error) {
                   console.log('Error: ' + error.message);
-                  notify({
-                      content: '账号或密码错误'
-                  })
               },
             });
           // window.localStorage.setItem('username', this.username)

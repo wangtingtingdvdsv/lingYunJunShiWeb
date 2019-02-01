@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import header from '../components/header.vue'
 import leftMenu from '../components/leftMenu.vue'
 
