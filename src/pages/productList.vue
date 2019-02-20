@@ -200,13 +200,11 @@ export default {
         
           console.log("%", JSON.stringify(this.categorys));
         }).catch(err => {console.log(err)})
-    },
-    addSure() {
       let reg = /((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
           if(!reg.test(this.form.phone)) {
             alert('请填写正确的电话号格式');
           }
-          if(this.form.picUrl.length < 3) {
+          if(this.form.picUrl.length != 3) {
             alert('必须上传三张图片');
             return;
           }
