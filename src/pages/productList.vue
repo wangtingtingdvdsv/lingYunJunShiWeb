@@ -187,20 +187,8 @@ export default {
     handleRemove(file, fileList) {
      
     },
-
-    getCategorys() {
-       axios.get(config.url + '/seller/category')
-        .then(res => {
-          let data = res.data.data;
-          for(let i = 0; i < data.length; i++) {
-            this.categorys[i] = {};
-            this.categorys[i].value = data[i].category_id;
-            this.categorys[i].label = data[i].category_name;
-          }
-        
-          console.log("%", JSON.stringify(this.categorys));
-        }).catch(err => {console.log(err)})
-      let reg = /((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
+    addSure(){
+       let reg = /((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
           if(!reg.test(this.form.phone)) {
             alert('请填写正确的电话号格式');
           }
@@ -226,6 +214,20 @@ export default {
               that.form.phone=''
               that.form.description=''
           }, 0)
+    },
+    getCategorys() {
+       axios.get(config.url + '/seller/category')
+        .then(res => {
+          let data = res.data.data;
+          for(let i = 0; i < data.length; i++) {
+            this.categorys[i] = {};
+            this.categorys[i].value = data[i].category_id;
+            this.categorys[i].label = data[i].category_name;
+          }
+        
+          console.log("%", JSON.stringify(this.categorys));
+        }).catch(err => {console.log(err)})
+      
     },
       getProductList() {
         var that = this;
