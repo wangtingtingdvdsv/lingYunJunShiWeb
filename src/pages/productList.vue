@@ -155,7 +155,7 @@ export default {
   created() {
     var token;
       var policy = {};
-      var bucketName = 'tuhu1';
+      var bucketName = 'lingyunjunshi';
       var AK ='2XzB02eDUbBxbayGPpkGuHbXETUZBPoyDHkHsWQs';
       var SK = 'EcvNdT0sTPTohnIVsQ_wy-pjDHZ-9MXmqn42Vlsp';
       var deadline = Math.round(new Date().getTime() / 1000) + 3600;
@@ -191,6 +191,7 @@ export default {
        let reg = /((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
           if(!reg.test(this.form.phone)) {
             alert('请填写正确的电话号格式');
+            return
           }
           if(this.form.picUrl.length != 3) {
             alert('必须上传三张图片');
@@ -240,13 +241,13 @@ export default {
             that.listInfo[i]={};
             that.listInfo[i] = data[i]
           }
-         
+          console.log('data', this.listInfo[0]);
           that.page++;   
         }).catch(err => {console.log(err)})
       },
       handleAvatarSuccess(res, file) {
     
-        this.imageUrl='http://plpmc6wip.bkt.clouddn.com/'+res.key
+        this.imageUrl='http://lyjs.wangtingting.top/'+res.key
         this.form.picUrl.push(this.imageUrl);
       },
       beforeAvatarUpload(file) {
