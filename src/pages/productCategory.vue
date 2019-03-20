@@ -22,21 +22,13 @@
       </el-dialog>
     </div>
     <div class="tableMain">
-         <el-table :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)" height="550px" border style="width: 100%">
+         <el-table :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)" height="450px" border style="width: 100%">
             <el-table-column prop="category_id" label="类目id">
             </el-table-column>
             <el-table-column prop="category_name" label="商品名称">
             </el-table-column>
             <el-table-column prop="update_time" label="创建时间">
             </el-table-column>
-            <!-- <el-table-column label="操作" width="170">
-                <template slot-scope="scope">
-                    <el-button size="small" type="danger" @click="handleDelete(slot-scope.$index, slot-scope.row)">删除
-                    </el-button>
-                    <el-button size="small" type="danger" @click="handleUpdate(slot-scope.$index, slot-scope.row)">修改
-                    </el-button>
-                </template>
-            </el-table-column> -->
         </el-table>
     </div>
     <div class="page">
@@ -109,7 +101,10 @@ export default {
           console.log(this.form.name);
           axios.post(config.url+'/seller/category/save', {
             categoryName:this.form.name
+          }).then(function() {
+            location.reload(true) 
           })
+          
       },
       getCategorys() {
         var that = this;

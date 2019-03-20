@@ -64,7 +64,7 @@
 
     </div>
     <div class="tableMain">
-         <el-table :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)" height="600px" border style="width: 100%">
+         <el-table :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)" height="500px" border style="width: 100%">
             <el-table-column prop="product_id" label="商品id">
             </el-table-column>
             <el-table-column prop="product_name" label="商品名称">
@@ -141,7 +141,7 @@ export default {
       },
       currentPage: 1,
       currentIndex: '',
-      pageSize:5,
+      pageSize:4,
       page:0,
       total:1000,
       changeProductId:''//要修改的商品的Id
@@ -199,7 +199,7 @@ export default {
           }
           this.$refs['upload'].clearFiles();
           this.dialogFormVisible = false;
-          location.reload(true) 
+          
           let productInfo = this.form;
 
           if(this.changeProductId) {
@@ -215,6 +215,7 @@ export default {
               that.form.phone=''
               that.form.description=''
           }, 0)
+          location.reload(true) 
     },
     getCategorys() {
        axios.get(config.url + '/seller/category')
@@ -241,7 +242,7 @@ export default {
             that.listInfo[i]={};
             that.listInfo[i] = data[i]
           }
-          console.log('data', this.listInfo[0]);
+          console.log('data', this.listInfo);
           that.page++;   
         }).catch(err => {console.log(err)})
       },
@@ -317,6 +318,7 @@ export default {
         axios.post(config.url +  '/seller/product/delete', {
           productId:this.changeProductId
         })
+        location.reload(true) 
         this.$message({
           type: 'success',
           message: '删除成功!'
